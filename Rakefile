@@ -9,7 +9,7 @@ BASE_IMAGES = ALL_IMAGES.map { |name|
   IO.foreach("#{name}/Dockerfile") do |line|
     break if base_image_name && base_image_tag
     case line
-    when /BASE_IMAGE_TAG=(\h+)/
+    when /BASE_IMAGE_TAG=(base-devel-\d+\.\S+)/
       base_image_tag = $1
     when /\AFROM\s+([^:]+)/
       base_image_name = $1
