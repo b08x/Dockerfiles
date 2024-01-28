@@ -1,7 +1,7 @@
 OWNER = 'b08x'.freeze
 
 ALL_IMAGES = %w[
-  archi3
+  i3arch
 ].each(&:freeze).freeze
 
 BASE_IMAGES = ALL_IMAGES.map { |name|
@@ -44,7 +44,7 @@ ALL_IMAGES.each do |image|
 
   desc "Build #{OWNER}/#{image} image"
   task "build/#{image}" => "pull/base_image/#{image}" do
-    sh "docker build -f #{image}/Dockerfile #{DOCKER_FLAGS} --rm --force-rm -t #{OWNER}/#{image}:latest ."
+    sh "docker buildx build -f #{image}/Dockerfile #{DOCKER_FLAGS} --rm --force-rm -t #{OWNER}/#{image}:latest ."
   end
 
   desc "Tag #{OWNER}/#{image} image"

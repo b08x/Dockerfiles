@@ -1,1 +1,6 @@
 .tool-versions
+archivebox/archivebox/
+archivebox/data/
+archivebox/etc/
+archivebox/sonic.cfg/
+Gemfile.lock
